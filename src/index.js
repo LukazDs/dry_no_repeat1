@@ -12,14 +12,20 @@ function renderTransaction(transaction) {
 function createdAtElements(price, createdAt, approvedAt, discountedPrice) {
 
     const elementsTransaction = [
-        `<li>Preço: R$ ${(price).toFixed(2).replace('.', ',')}<br></li>`,
-        `<li>Preço com desconto: R$ ${(discountedPrice).toFixed(2).replace('.', ',')}<br></li>`,
+        `<li>Preço: R$ ${formatValue(price)}<br></li>`,
+        `<li>Preço com desconto: R$ ${formatValue(discountedPrice)}<br></li>`,
         `<li>Criado em: ${createdAt}<br></li>`,
         `<li>Aprovado em: ${approvedAt}<br></li>`
     ];
 
     makeElements(elementsTransaction);
 
+}
+
+function formatValue(value) {
+
+    return value.toFixed(2).replace('.', ',')
+    
 }
 
 function makeElements(elementsTransaction) {
